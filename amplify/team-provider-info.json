@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-timekeeper-dev-140642-authRole",
+      "UnauthRoleArn": "arn:aws:iam::233428486694:role/amplify-timekeeper-dev-140642-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::233428486694:role/amplify-timekeeper-dev-140642-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-timekeeper-dev-140642-deployment",
+      "UnauthRoleName": "amplify-timekeeper-dev-140642-unauthRole",
+      "StackName": "amplify-timekeeper-dev-140642",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:233428486694:stack/amplify-timekeeper-dev-140642/21169970-2dc1-11ec-ace7-06ef52f34fcf",
+      "AmplifyAppId": "dhbxnukieye1p"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "dhbxnukieye1p",
+          "type": "manual"
+        }
+      },
+      "auth": {
+        "timekeeper280f7804": {}
+      }
+    }
+  }
+}

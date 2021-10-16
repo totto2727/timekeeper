@@ -1,0 +1,38 @@
+{
+  "identityPoolName": "timekeeper280f7804_identitypool_280f7804",
+  "allowUnauthenticatedIdentities": false,
+  "resourceNameTruncated": "timeke280f7804",
+  "userPoolName": "timekeeper280f7804_userpool_280f7804",
+  "autoVerifiedAttributes": ["email"],
+  "mfaConfiguration": "OFF",
+  "mfaTypes": ["SMS Text Message"],
+  "smsAuthenticationMessage": "Your authentication code is {####}",
+  "smsVerificationMessage": "Your verification code is {####}",
+  "emailVerificationSubject": "Your verification code",
+  "emailVerificationMessage": "Your verification code is {####}",
+  "defaultPasswordPolicy": false,
+  "passwordPolicyMinLength": 8,
+  "passwordPolicyCharacters": [],
+  "requiredAttributes": ["email"],
+  "aliasAttributes": [],
+  "userpoolClientGenerateSecret": false,
+  "userpoolClientRefreshTokenValidity": 30,
+  "userpoolClientWriteAttributes": ["email"],
+  "userpoolClientReadAttributes": ["email"],
+  "userpoolClientLambdaRole": "timeke280f7804_userpoolclient_lambda_role",
+  "userpoolClientSetAttributes": false,
+  "sharedId": "280f7804",
+  "resourceName": "timekeeper280f7804",
+  "authSelections": "identityPoolAndUserPool",
+  "authRoleArn": {
+    "Fn::GetAtt": ["AuthRole", "Arn"]
+  },
+  "unauthRoleArn": {
+    "Fn::GetAtt": ["UnauthRole", "Arn"]
+  },
+  "useDefault": "default",
+  "userPoolGroupList": [],
+  "serviceName": "Cognito",
+  "usernameCaseSensitive": false,
+  "dependsOn": []
+}

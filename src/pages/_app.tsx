@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react'
 
-import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components'
+import {
+  AuthState,
+  CognitoUserInterface,
+  onAuthUIStateChange,
+} from '@aws-amplify/ui-components'
 import {
   AmplifyAuthenticator,
   AmplifySignIn,
@@ -10,8 +14,8 @@ import Amplify, { I18n } from 'aws-amplify'
 import { AppProps } from 'next/app'
 
 import awsconfig from '../aws-exports'
-
 import '../styles/main.css'
+import { AuthProvider } from '../context/AuthContext'
 
 // 以下で作成したCognitoをAmplifyで利用できるよう読み込ませる
 Amplify.configure(awsconfig)
@@ -43,21 +47,23 @@ const dict = {
 I18n.putVocabularies(dict)
 I18n.setLanguage('ja')
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const App = ({ Component, pageProps }: AppProps) => {
   const [authState, setAuthState] = useState<AuthState>()
-  const [user, setUser] = useState<object | undefined>()
+  const [user, setUser] = useState<CognitoUserInterface | undefined>()
 
   useEffect(
     () =>
       onAuthUIStateChange((nextAuthState, authData) => {
         setAuthState(nextAuthState)
-        setUser(authData)
+        setUser(authData as CognitoUserInterface | undefined)
       }),
     []
   )
 
   return authState === AuthState.SignedIn && user ? (
-    <Component {...pageProps} />
+    <AuthProvider auth={authState} user={user}>
+      <Component {...pageProps} />
+    </AuthProvider>
   ) : (
     <AmplifyAuthenticator>
       <AmplifySignIn slot='sign-in' />
@@ -88,4 +94,4 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   )
 }
 
-export default MyApp
+export default App

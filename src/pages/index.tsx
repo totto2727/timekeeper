@@ -1,10 +1,12 @@
 import { useRouter } from 'next/router'
 
+import { useAuth } from '../context/AuthContext'
 import { Main } from '../templates/Main'
 import { Meta } from '../templates/Meta'
 
 const Index = () => {
   const router = useRouter()
+  const { user } = useAuth()
 
   return (
     <Main
@@ -14,6 +16,7 @@ const Index = () => {
           description='Next js Boilerplate is the perfect starter code for your project. Build your React application with the Next.js framework.'
         />
       }>
+      <p>{user?.username}</p>
       <a href='https://github.com/ixartz/Next-js-Boilerplate'>
         <img
           src={`${router.basePath}/assets/images/nextjs-starter-banner.png`}
